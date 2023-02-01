@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const {
-    HOST,
     PORT,
     JWT_EMAIL_SECRET,
     SENDER_EMAIL_HOST,
@@ -28,7 +27,7 @@ const getVerificationLink = (email) => {
         JWT_EMAIL_SECRET,
         { expiresIn: '1h' }
     );
-    return `http://${HOST}:${PORT}/user/email-verification?verifyToken=${verifyToken}`;
+    return `http://127.0.0.1:${PORT}/user/email-verification?verifyToken=${verifyToken}`;
 };
 
 const sendVerificationMail = async (receiverEmail) => {

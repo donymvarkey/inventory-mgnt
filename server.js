@@ -3,7 +3,7 @@ const http = require('http');
 const { dbConn } = require('./db/connect');
 const app = require('./app');
 const port = process.env.PORT || 3000;
-const host = process.env.HOST || '127.0.0.1';
+// const host = process.env.HOST || '127.0.0.1';
 const server = http.createServer(app);
 
 dbConn()
@@ -13,7 +13,7 @@ dbConn()
                 console.log(err);
                 return;
             }
-            console.log(`Server listening on http://${host}:${port}/api-docs`);
+            console.log(`Server listening on http://127.0.0.1:${port}/api-docs`);
         });
     })
     .catch((err) => {
