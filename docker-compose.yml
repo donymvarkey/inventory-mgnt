@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    networks:
+      - webapp-network
+    restart: always
+    command: '--logpath=/dev/null'
+    volumes:
+        - app-db-volume:/data/db
+  myapp:
+    image: node-restful-api-shop:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+       - "3000:3000"
+    environment:
+      - DB_PROD_URI=mongodb://mongo:27017/node-restful-prod
+      - DB_DEV_URI=mongodb://mongo:27017/node-restful-dev
+      - DB_TEST_URI=mongodb://mongo:27017/node-restful-test
+    networks:
+      - webapp-network
+    depends_on:
+      - mongo
+  
+    command: ["npm", "run", "start"]
+
+networks:
+  webapp-network:
+    driver: bridge
+
+volumes:
+    app-db-volume:
