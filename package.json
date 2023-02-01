@@ -11,16 +11,11 @@
         "lint:fix": "./node_modules/.bin/eslint --fix --ext .js,.jsx .",
         "test": "npx cross-env NODE_ENV=test npx mocha --timeout 5000 --recursive --exit "
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/LQF2020/node-restful-shop.git"
+    "engines": {
+        "node": ">=14"
     },
     "author": "Qifu LU",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/LQF2020/node-restful-shop/issues"
-    },
-    "homepage": "https://github.com/LQF2020/node-restful-shop#readme",
     "dependencies": {
         "bcrypt": "^5.0.0",
         "body-parser": "^1.19.0",
