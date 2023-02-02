@@ -16,8 +16,12 @@ module.exports = {
     },
     servers: [
         {
+            url: `https://inventory-mgmt-dnh0.onrender.com`,
+            description: 'Server Hosted'
+        },
+        {
             url: `http://127.0.0.1:${process.env.PORT}`,
-            description: 'Server'
+            description: 'Server Local'
         }
     ]
 };
