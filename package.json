@@ -4,7 +4,7 @@
     "description": "A nodejs restfulapi server",
     "main": "index.js",
     "scripts": {
-        "start": "npx cross-env NODE_ENV=development nodemon ./server.js",
+        "start": "npx cross-env NODE_ENV=development node ./server.js",
         "dev": "npx cross-env NODE_ENV=development nodemon ./server.js",
         "prod": "npx cross-env NODE_ENV=production npx pm2 start ./server.js",
         "lint": "./node_modules/.bin/eslint --ext .js,.jsx .",
