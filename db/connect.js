@@ -1,18 +1,11 @@
 const mongoose = require('mongoose');
 
-let DB_URI;
+const DB_URI = process.env.DB_DEV_URI;
 
 mongoose.set('useCreateIndex', true);
 const db = mongoose.connection;
 
 const dbConn = async () => {
-    if (process.env.NODE_ENV === 'test') {
-        DB_URI = process.env.DB_TEST_URI;
-    } else if (process.env.NODE_ENV === 'development') {
-        DB_URI = process.env.DB_DEV_URI;
-    } else if (process.env.NODE_ENV === 'production') {
-        DB_URI = process.env.DB_PROD_URI;
-    }
     try {
         console.log(`Connecting to: ${DB_URI}`);
         await mongoose.connect(DB_URI, {
